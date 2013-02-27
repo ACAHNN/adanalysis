@@ -1,0 +1,29 @@
+File: parsedata.m
+	* This file handles the parsing of the original data
+	from the daily reports that we recieve from BIM.
+	
+	* This file takes a long time to run as it is parsing
+	over a lot of data and currently creating a file for
+	each unqiue website it finds. I am going to look into
+	improving the speed of this file eventually.
+	
+File: volume_revenue.m
+	* This file reads in one of the particular website files
+	generated from parsedata.m and graphs revenue vs. time,
+	volume vs. time and mean revenue vs. time.
+	
+	* I have it set to only read in 10000 lines from a file
+	as this is enough data to generate the graphs. However,
+	it can also be bumped higher if desired. (I originally
+	ran it with 1000000 but the graphs don't look significantly
+	different from the ones genereated with only 10000 data
+	points)
+	
+File: dlmcell.m
+	* Open source file I found that handles writing a cell
+	array out to a file in a clean fashion.
+	
+File: _<website url>_
+	* These contain all the data for one day of the website
+	with the name <website url>. These are the files to read
+	from when using volume_revenue.m to graph data.
