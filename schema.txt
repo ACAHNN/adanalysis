@@ -1,0 +1,70 @@
+message SellerICEntry {
+
+// an internal unique id for this ad request
+required string query_id = 1;
+
+// date and time (as formatted string) when ad request was received (in Pacific Time)
+required string datetime = 2;
+
+// whether this was an anonymous impression
+optional bool is_anonymous = 3;
+
+// Winning buyer’s name
+optional string buyer = 4;
+
+// We will soon stop populating DEPRECATED_sitename since the information provided
+// by this field can be derived from the referer_url field.
+optional string DEPRECATED_sitename = 5;
+
+// anonymous ID if is_anonymous=true
+optional string anonymous_id = 6;
+
+// The url for this ad request
+optional string referer_url = 7;
+
+// whether data collection for interest targeting was allowed for this impression
+optional bool allow_data_collection_for_interest_targeting= 8;
+
+// whether user list targeting was allowed for this impression
+optional bool allow_user_list_targeting = 9;
+
+// whether user interest targeting was allowed for this impression
+optional bool allow_user_interest_targeting = 10;
+
+// a list of geo information separated by ‘+’ (ISO 3166-1/ISO 3166-2 codes)
+optional string matched_geo_list = 11;
+
+// matched_verticals_list comprises verticals represented as docvertical::xxx separated by +
+// xxx is a numeric code from the provided verticals dictionary
+optional string matched_verticals_list = 12;
+
+// channels comprises tracking channel names separated by ‘+’
+optional string channels = 13;
+
+// ad_type must be interpreted as a bitmap
+// ad_type & 0x1 indicates whether impression included a text ad
+// ad_type & 0x2 indicates whether impression included an image ad
+// ad_type & 0x4 indicates whether impression included an ad of other type
+optional int32 ad_type = 14;
+
+// IP address(es) from which this ad request was received.
+// The last octet is set to 0 to protect customer privacy.
+optional string client_ip = 15;
+
+optional string adslot_code = 16;
+
+// publisher revenue for the impression in USD
+optional double publisher_revenue_usd = 17;
+
+// applied CPM reserve price in USD
+optional double seller_reserve_price_usd = 18;
+
+// Whether this impression was user list targeted
+optional bool was_userlist_targeted = 20;
+
+// Whether there was a keyword match for this impression
+optional bool was_match_on_keyword = 21;
+
+// Whether a click was recorded (num_clicks represents a boolean and is either 0 or 1)
+required int32 num_clicks = 22;
+};
