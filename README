@@ -27,5 +27,3 @@ File: _<website url>_
 	* These contain all the data for one day of the website
 	with the name <website url>. These are the files to read
 	from when using volume_revenue.m to graph data.
-
-TEST
